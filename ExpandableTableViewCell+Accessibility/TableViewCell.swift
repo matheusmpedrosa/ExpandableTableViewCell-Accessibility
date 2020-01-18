@@ -138,7 +138,7 @@ class TableViewCell: UITableViewCell {
     private func setupHiddenDescriptionLabelConstraints() {
         hiddenDescriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8).isActive = true
         hiddenDescriptionLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20).isActive = true
-        hiddenDescriptionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: 20).isActive = true
+        hiddenDescriptionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20).isActive = true
         hiddenDescriptionLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20).isActive = true
         hiddenDescriptionLabel.heightAnchor.constraint(equalToConstant: hiddenDescriptionLabelHeightConstraint).isActive = true
     }
