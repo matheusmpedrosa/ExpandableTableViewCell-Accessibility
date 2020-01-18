@@ -30,17 +30,21 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         buildViewHierarchy()
         setupConstraints()
-        
+        forceLightMode()
         for _ in cells {
             arrExpandedCells.append(false)
         }
     }
+    
+    private func forceLightMode() {
+        overrideUserInterfaceStyle = .light
+    }
 
-    func buildViewHierarchy() {
+    private func buildViewHierarchy() {
         self.view.addSubview(tableView)
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         tableView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true
         tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
         tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true

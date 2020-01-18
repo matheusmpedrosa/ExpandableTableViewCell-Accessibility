@@ -121,14 +121,26 @@ class TableViewCell: UITableViewCell {
         containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0).isActive = true
         containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
         containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
-        containerView.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        if isExpanded {
+            containerView.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        } else {
+            containerView.heightAnchor.constraint(equalToConstant: 64).isActive = true
+        }
     }
     
     private func setupTitleLabelConstraints() {
         titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20).isActive = true
-        titleLabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: expandButton.leadingAnchor, constant: -8).isActive = true
+        titleLabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
+    }
+    
+    private func setupHiddenDescriptionLabelConstraints() {
+        hiddenDescriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8).isActive = true
+        hiddenDescriptionLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20).isActive = true
+        hiddenDescriptionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: 20).isActive = true
+        hiddenDescriptionLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20).isActive = true
+        hiddenDescriptionLabel.heightAnchor.constraint(equalToConstant: hiddenDescriptionLabelHeightConstraint).isActive = true
     }
     
     private func setupExpandButtonConstraints() {
@@ -139,11 +151,4 @@ class TableViewCell: UITableViewCell {
         expandButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
     }
     
-    private func setupHiddenDescriptionLabelConstraints() {
-        hiddenDescriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8).isActive = true
-        hiddenDescriptionLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20).isActive = true
-        hiddenDescriptionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: 20).isActive = true
-        hiddenDescriptionLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20).isActive = true
-        hiddenDescriptionLabel.heightAnchor.constraint(equalToConstant: hiddenDescriptionLabelHeightConstraint).isActive = true
-    }
 }
