@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     lazy private var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.dataSource = self
+        tableView.tableFooterView = UIView()
         tableView.register(TableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
